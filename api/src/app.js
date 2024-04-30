@@ -7,6 +7,7 @@ const {sequelize} = require("./models");
 const loginRoutes = require('./routes/loginRoutes');
 const seedUp = require('./seeders/clarenceSeeder').up;
 const seedDown = require('./seeders/clarenceSeeder').down;
+const cors = require('cors');
 
 sequelize.sync({ force: true })
     .then(async () => {
@@ -17,6 +18,7 @@ sequelize.sync({ force: true })
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
