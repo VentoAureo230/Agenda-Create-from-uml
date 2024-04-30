@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "8a915e78-7022-49bb-b8bb-802402fb4e54",
+		"name": "API agenda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27240810",
+		"_collection_link": "https://galactic-satellite-682167.postman.co/workspace/My-Workspace~2d1cfa00-28ef-426e-8ba3-05a5d3074635/collection/27240810-8a915e78-7022-49bb-b8bb-802402fb4e54?action=share&source=collection_link&creator=27240810"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\":\"clarence\",\r\n    \"password\":\"clarence\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "login",
+							"value": "jeanPizza",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "jeanPizza",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get agendas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImxvZ2luIjoiY2xhcmVuY2UiLCJlbWFpbCI6ImNsYXJlbmNlQHNlZWRvcmYiLCJpYXQiOjE3MTQ0ODQxMTl9.92ferd7bpEY5V6cdY8i89VPfbVXnTLwg-Bgmk3PdKkc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\":\"clarence\",\r\n    \"password\":\"clarence\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/agendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"agendas"
+					],
+					"query": [
+						{
+							"key": "login",
+							"value": "jeanPizza",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "jeanPizza",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
