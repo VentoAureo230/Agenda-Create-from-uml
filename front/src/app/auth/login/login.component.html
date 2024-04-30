@@ -5,7 +5,7 @@
             <input type="text" name="login" placeholder="Login">
             <label for="password">Mot de passe:</label>
             <input type="password" name="password" placeholder="Password">
-            <button type="submit" (click)="loginUser(login, password)">Valider</button>
+            <button type="submit" (click)="loginUser($event, login, password)">Valider</button>
         </div>
     </form>
 </div>
