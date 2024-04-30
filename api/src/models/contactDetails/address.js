@@ -1,5 +1,8 @@
 class Address extends AbstractContactDetails {
-    constructor(value, pattern) {
-        super(value, pattern);
+    pattern = "^[a-zA-Z0-9\s,'-]*$";
+    value;
+    constructor(value) {
+        super();
+        this.value = value;
     }
 }

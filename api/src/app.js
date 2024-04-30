@@ -1,7 +1,7 @@
 const express = require('express');
-const userRoutes = require('./routes/userRoutes');
 const agendaRoutes = require('./routes/agendaRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+const userRoutes = require('./routes/userRoutes');
 const Contact = require('./models/contact');
 const {sequelize} = require("./models");
 const loginRoutes = require('./routes/loginRoutes');
@@ -30,6 +30,9 @@ app.use((req, res, next) => {
 });
 app.use(express.urlencoded({extended: true}));
 app.use('/api/v1/login', loginRoutes);
+app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/agendas', agendaRoutes);
+app.use('/api/v1/contacts', contactRoutes);
 
 // Start the server
 const port = process.env.PORT || 3000;
