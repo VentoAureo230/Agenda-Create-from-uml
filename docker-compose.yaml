@@ -8,9 +8,11 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: agendaDB
+      POSTGRES_DB: database
     ports:
-      - "5432:5432"
+      - "5454:5454"
+    networks:
+      - mynetwork
 
   pgadmin:
     container_name: pgadmin-container
@@ -21,6 +23,24 @@ services:
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
       - "5050:80"
+    depends_on:
+      - db
 
+  app:
+    build: .
+    container_name: app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - ./src:/app/src
+    command: npm start
+    networks:
+      - mynetwork
+    
 volumes:
   postgres_data:
+
+networks:
+  mynetwork:
