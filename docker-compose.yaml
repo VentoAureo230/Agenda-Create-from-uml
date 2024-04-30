@@ -6,11 +6,11 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: root
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: database
     ports:
-      - 5454:5432
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - "5432:5432"
 
   pgadmin:
     container_name: pgadmin-container
@@ -20,7 +20,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: user@root.com
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
-      - 5050:80
+      - "5050:80"
 
 volumes:
   postgres_data:
