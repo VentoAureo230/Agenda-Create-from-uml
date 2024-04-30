@@ -11,7 +11,19 @@ services:
       POSTGRES_DB: agendaDB
     ports:
       - "5454:5432"
+    depends_on:
+      - db
 
+  api-back:
+    ports:
+      - "3000:3000"
+    working_dir: /usr/src/app
+    command: sh -c "npm install && npm start"
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+
+# sert à que dalle
   pgadmin:
     container_name: pgadmin-container
     image: dpage/pgadmin4
@@ -24,18 +36,6 @@ services:
     depends_on:
       - db
 
-  #app:
-  #  build: .
-  #  container_name: app
-  #  ports:
-  #    - "3000:3000"
-  #  depends_on:
-  #    - db
-  #  volumes:
-  #    - ./src:/app/src
-  #  command: npm start
-  #  networks:
-  #    - mynetwork
     
 volumes:
   postgres_data:
