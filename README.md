@@ -44,4 +44,4 @@ npm i
 ng serve
 ```
 
-En cours de développement
+En cours de développement (rien ne marche)
