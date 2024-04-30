@@ -1,0 +1,27 @@
+<!-- home.component.html -->
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" href="#">Agenda</a>
+    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logout()">Déconnexion</button>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Agendas de contact</h1>
+        <ul>
+          <li *ngFor="let agenda of agendas">
+            <h2>{{ agenda.name }}</h2>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <h1>Créer un nouvel agenda</h1>
+        <form (submit)="createAgenda()">
+          <div class="form-group">
+            <label for="agendaName">Nom de l'agenda</label>
+            <input type="text" class="form-control" id="agendaName" [(ngModel)]="newAgendaName">
+          </div>
+          <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+      </div>
+    </div>
+  </div>
