@@ -6,7 +6,7 @@ const Contact = require('./models/contact');
 const {sequelize} = require("./models");
 
 
-sequelize.sync()
+sequelize.sync({ force: true })
     .then(() => console.log('Database & tables created!'))
     .catch(error => console.log('This error occurred', error));
 

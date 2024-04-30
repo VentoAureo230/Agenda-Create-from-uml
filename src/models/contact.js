@@ -24,6 +24,8 @@ const Contact = sequelize.define('Contact', {
         type: DataTypes.JSON,
         allowNull: true
     },
+}, {
+    timestamps: false
 });
 
 module.exports = Contact;
