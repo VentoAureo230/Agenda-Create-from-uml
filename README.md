@@ -4,11 +4,19 @@
 
 ### Docker
 
-Pour installer la base de donnée :
+Pour installer PostgreSQL et PgAdmin:
 
 ```shell
 docker-compose up -d
 ```
+
+Seulement PostgreSQL :
+
+```shell
+docker-compose up db
+```
+
+Pour configurer l'host de PgAdmin :
 
 ```shell
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' agenda
