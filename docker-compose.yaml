@@ -10,9 +10,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: agendaDB
     ports:
-      - "5454:5454"
-    networks:
-      - mynetwork
+      - "5432:5432"
 
   pgadmin:
     container_name: pgadmin-container
@@ -26,21 +24,18 @@ services:
     depends_on:
       - db
 
-  app:
-    build: .
-    container_name: app
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-    volumes:
-      - ./src:/app/src
-    command: npm start
-    networks:
-      - mynetwork
+  #app:
+  #  build: .
+  #  container_name: app
+  #  ports:
+  #    - "3000:3000"
+  #  depends_on:
+  #    - db
+  #  volumes:
+  #    - ./src:/app/src
+  #  command: npm start
+  #  networks:
+  #    - mynetwork
     
 volumes:
   postgres_data:
-
-networks:
-  mynetwork:
