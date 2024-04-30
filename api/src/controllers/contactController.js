@@ -28,3 +28,11 @@ exports.createContact = async (req, res) => {
         return res.status(500).send({ message: error.message });
     }
 };
+exports.getContacts = async (req, res) => {
+    try {
+        const contacts = await Contact.findAll();
+        return res.status(200).send(contacts);
+    } catch (error) {
+        return res.status(500).send({ message: error.message });
+    }
+}

@@ -19,7 +19,6 @@ exports.loginUser = async (req, res) => {
         } else if (user.password !== hashPassword(password)) {
             return res.status(401).json({error: 'Mot de passe incorrect'});
         } else {
-            console.log("je me jette part la fenetre");
             sign({
                 userId: user.userId,
                 login: user.login,
