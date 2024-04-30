@@ -8,20 +8,22 @@ const Contact = sequelize.define('Contact', {
     email: {
         type: DataTypes.JSON,
         allowNull: false,
-        validate: {
-            isEmail: true
-        }
+        defaultValue: {}
+
     },
     phone: {
         type: DataTypes.JSON,
-        allowNull: true
+        allowNull: true,
+        defaultValue: {}
     },
     website: {
         type: DataTypes.JSON,
+        defaultValue: {},
         allowNull: true
     },
     address: {
         type: DataTypes.JSON,
+        defaultValue: {},
         allowNull: true
     },
 }, {

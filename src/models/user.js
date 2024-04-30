@@ -10,10 +10,6 @@ const User = sequelize.define('User', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    jwt: {
-        type: DataTypes.STRING,
-        allowNull: true
-    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
