@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass']
 })
@@ -23,7 +24,7 @@ export class HomeComponent {
 
   contactForm: FormGroup;
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private http: HttpClient) {
     this.contactForm = this.formBuilder.group({
       newAgendaName: ['', Validators.required],
       newContactName: ['', Validators.required],
@@ -31,7 +32,18 @@ export class HomeComponent {
       newContactEmail: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]],
       newContactSite: ['', Validators.required],
     });
-   }
+  }
+  ngOnInit() {
+    this.getAgendas();
+  }
+
+  getAgendas() {
+    this.http.get('http://localhost:3000/agendas').subscribe((agendas: any) => {
+      this.agendas = agendas;
+    }, (error) => {
+      console.error(error);
+    });
+  }
 
   logout() {
     this.router.navigate(['/login']);
@@ -52,4 +64,5 @@ export class HomeComponent {
     });
     this.contactForm.reset();
   }
+
 }
