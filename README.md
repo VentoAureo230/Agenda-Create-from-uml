@@ -44,4 +44,9 @@ npm i
 ng serve
 ```
 
-En cours de développement
+En cours de développement (rien ne marche)
+
+## Ameliorations
+
+- Mettre l'ensemble du projet dans le docker-compose
+- Terminer les features
