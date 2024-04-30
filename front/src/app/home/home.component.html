@@ -1,27 +1,49 @@
 <!-- home.component.html -->
 <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand" href="#">Agenda</a>
-    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logout()">Déconnexion</button>
-  </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h1>Agendas de contact</h1>
-        <ul>
-          <li *ngFor="let agenda of agendas">
-            <h2>{{ agenda.name }}</h2>
-          </li>
-        </ul>
-      </div>
-      <div class="col">
-        <h1>Créer un nouvel agenda</h1>
-        <form (submit)="createAgenda()">
+  <a class="navbar-brand" href="/home">Agenda</a>
+  <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logout()">Déconnexion</button>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-*">
+      <h1>Agendas de contact</h1>
+      <ul>
+        <li *ngFor="let agenda of agendas">
+          <h2>{{ agenda.name }}</h2>
+        </li>
+      </ul>
+    </div>
+    <div class="col-*">
+      <h1>Créer un nouvel agenda</h1>
+      <form [formGroup]="contactForm" (ngSubmit)="createAgenda()">
+        <div class="form-group">
+          <label for="agendaName">Nom de l'agenda</label>
+          <input type="text" class="form-control" id="agendaName" formControlName="newAgendaName">
+        </div>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </form>
+    </div>
+    <div class="col-*">
+      <h1>Créer un contact</h1>
+      <form [formGroup]="contactForm" (ngSubmit)="createContact()">
+        <div class="form-group">
           <div class="form-group">
-            <label for="agendaName">Nom de l'agenda</label>
-            <input type="text" class="form-control" id="agendaName" [(ngModel)]="newAgendaName">
+            <label for="agendaName">Agenda</label>
+            <select class="form-control" id="agendaName" formControlName="selectedAgenda">
+              <option *ngFor="let agenda of agendas" [value]="agenda.name">{{agenda.name}}</option>
+            </select>
           </div>
-          <button type="submit" class="btn btn-primary">Valider</button>
-        </form>
-      </div>
+          <label for="contactName">Nom</label>
+          <input type="text" class="form-control" id="contactName" formControlName="newContactName">
+          <label for="contactPhone">Téléphone</label>
+          <input type="text" class="form-control" id="contactPhone" formControlName="newContactPhone">
+          <label for="contactEmail">Email</label>
+          <input type="text" class="form-control" id="contactEmail" formControlName="newContactEmail">
+          <label for="contactSite">Site web</label>
+          <input type="text" class="form-control" id="contactSite" formControlName="newContactSite">
+        </div>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </form>
     </div>
   </div>
+</div>
