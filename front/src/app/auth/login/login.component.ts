@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent {
   login!: string;
   password!: string;
-  apiUrl = 'http://localhost:3000/api/v1';
+  apiUrl = 'localhost:3000/api/v1';
 
   constructor(private http: HttpClient) { }
 
