@@ -1,9 +1,5 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('database', 'username', 'password', {
-    host: 'localhost',
-    dialect: 'postgres'
-});
-
+const { DataTypes } = require('sequelize');
+const sequelize = require('../sequelize.js');
 const Contact = sequelize.define('Contact', {
     name: {
         type: DataTypes.STRING,
@@ -28,8 +24,6 @@ const Contact = sequelize.define('Contact', {
         type: DataTypes.JSON,
         allowNull: true
     },
-}, {
-    // Other model options go here
 });
 
 module.exports = Contact;

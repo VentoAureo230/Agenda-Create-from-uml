@@ -2,13 +2,10 @@ const express = require('express');
 const userRoutes = require('./routes/userRoutes');
 const agendaRoutes = require('./routes/agendaRoutes');
 const contactRoutes = require('./routes/contactRoutes');
-const { Sequelize } = require('sequelize');
+const Contact = require('./models/contact');
+const {sequelize} = require("./models");
 
-const sequelize = new Sequelize('database', 'postgres', 'postgres', {
-    host: 'localhost',
-    dialect: 'postgres',
-    port: 5432,
-});
+
 sequelize.sync()
     .then(() => console.log('Database & tables created!'))
     .catch(error => console.log('This error occurred', error));
