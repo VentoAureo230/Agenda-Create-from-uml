@@ -2,9 +2,9 @@
     <form style="width: 300px;">
         <div style="display: flex; flex-direction: column; gap: 10px;">
             <label for="email">Email:</label>
-            <input type="text" [(ngModel)]="login" placeholder="Login">
+            <input type="text" [(ngModel)]="login" name="login" placeholder="Login">
             <label for="password">Mot de passe:</label>
-            <input type="password" [(ngModel)]="password" placeholder="Password">
+            <input type="password" [(ngModel)]="password" name="password" placeholder="Password">
             <button type="submit" (click)="loginUser(login, password)">Valider</button>
         </div>
     </form>
