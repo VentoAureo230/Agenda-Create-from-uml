@@ -35,6 +35,7 @@ npm run start
 ```
 
 Les tables seront crées via les schéma grace à Sequelize. L'API est root sur ExpressJS.
+Le login fonctionne (voir collection postman), retourne un jwt qui peut etre utiliser pour les autres routes.
 
 ### Front-End
 
